@@ -31,14 +31,12 @@ function App() {
       .then(data => setCart(data.cart || [])); // <- aquí aseguramos que siempre sea array
   };
 
-  // Agregar producto al carrito
-  const addToCart = (id: number) => {
-    fetch(`${API_BASE}/carrito`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    }).then(() => fetchCart());
-  };
+ // Agregar producto al carrito
+const addToCart = (id: number) => {
+  const product = products.find(p => p.id === id);
+  if (product) setCart(prev => [...prev, product]);
+};
+
 
   // Función para la mejor combinación
   const findBestCombination = (items: Product[], maxBudget: number): Product[] => {
