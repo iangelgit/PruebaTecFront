@@ -12,7 +12,7 @@ const API_BASE = "https://pruebatecback.onrender.com";
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<Product[]>([]);
-  const [budget, setBudget] = useState(150);
+  const [budget] = useState(150); // solo guardamos el valor
   const [bestCombo, setBestCombo] = useState<Product[]>([]);
 
   // Obtener productos
